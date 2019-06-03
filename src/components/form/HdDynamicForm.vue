@@ -57,6 +57,14 @@ export default {
       formData: {},
     };
   },
+  watch: {
+    formData: {
+      deep: true,
+      handler(formData) {
+        this.$emit('input', formData);
+      },
+    },
+  },
   created() {
     this.initializeFormData(this.items);
   },
