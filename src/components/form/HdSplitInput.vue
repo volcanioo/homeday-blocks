@@ -12,6 +12,7 @@
           :key="`split-input-${index}`"
           v-model="fieldsValues[field.name]"
           v-bind="field"
+          :disabled="disabled ? 'disabled' : null"
           class="field__input"
           @focus="handleFocus"
           @blur="handleBlur">
@@ -92,6 +93,10 @@ export default {
       type: Object,
       default: () => ({}),
     },
+    disabled: {
+      type: Boolean,
+      default: false,
+    },
   },
   data() {
     return {
@@ -115,6 +120,7 @@ export default {
         'field--active': this.isActive,
         'field--filled': !this.isEmpty,
         'field--invalid': this.isValid === false,
+        'field--disabled': this.disabled,
       };
     },
   },
