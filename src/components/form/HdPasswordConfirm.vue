@@ -7,7 +7,8 @@
       class="confirm-password__input"
       type="password"
       :label="t.FORM.PASSWORD.LABEL"
-      :required="required"/>
+      :required="required"
+      :disabled="disabled"/>
 
     <div class="confirmPassword__strengthMeter" :class="{isVisible: strengthBarVisible}">
       <div class="confirmPassword__strengthMeter__text"
@@ -24,7 +25,8 @@
       class="confirmPassword__input"
       type="password"
       :label="t.FORM.PASSWORD.LABEL_CONFIRM"
-      :required="required"/>
+      :required="required"
+      :disabled="disabled"/>
   </div>
 </template>
 
@@ -68,6 +70,10 @@ export default {
     texts: {
       type: Object,
       default: () => ({}),
+    },
+    disabled: {
+      type: Boolean,
+      default: false,
     },
   },
   data() {

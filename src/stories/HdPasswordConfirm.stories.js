@@ -84,4 +84,13 @@ storiesOf('Form/HdPasswordConfirm', module)
         default: boolean('withStrength', false),
       },
     },
+  }))
+  .add('disabled', () => ({
+    components: { HdPasswordConfirm },
+    template: `
+    <hd-password-confirm
+      :min="6"
+      :disabled="true"
+    />
+    `,
   }));
