@@ -26,8 +26,8 @@
     <div
       :aria-checked="isChecked ? 'true' : 'false'"
       :aria-labelledby="label ? `${name}--label` : null"
+      :tabindex="disabled ? -1 : 0"
       class="checkbox__inner"
-      tabindex="disabled ? -1 : 0"
       role="checkbox"
       @click="toggle"
       @keydown.space.enter.prevent="toggle"
