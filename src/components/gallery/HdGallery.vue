@@ -36,7 +36,7 @@
     </figure>
     <slot name="middle"/>
     <HdGalleryCarousel
-      v-if="hasImages"
+      v-if="shouldShowCarousel"
       :items="items"
       v-model="currentItemIndex"
       :pager-inside="pagerInside"
@@ -98,6 +98,9 @@ export default {
     },
     hasImages() {
       return this.items.length > 0;
+    },
+    shouldShowCarousel() {
+      return this.items.length > 1;
     },
     isFirstItem() {
       return this.currentItemIndex === 0;
