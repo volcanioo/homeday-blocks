@@ -60,6 +60,7 @@
 import Flickity from 'vue-flickity';
 import onResize from 'homeday-blocks/src/services/on-resize';
 import HdPager from 'homeday-blocks/src/components/HdPager.vue';
+import variablesForJS from 'homeday-blocks/src/styles/variablesForJS.scss';
 
 export default {
   name: 'HdGalleryCarousel',
@@ -150,7 +151,8 @@ export default {
     },
     updateCurrentIndex(itemIndex) {
       this.currentIndex = itemIndex;
-      if (window.matchMedia('min-width: $break-tablet')) {
+      const mediaQuery = `(max-width: ${variablesForJS.breakTablet})`;
+      if (window.matchMedia(mediaQuery).matches) {
         this.$emit('input', itemIndex);
       }
     },
